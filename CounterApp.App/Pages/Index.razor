@@ -1,0 +1,30 @@
+﻿@page "/"
+@using CounterApp.Shared.Domain;
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Games</h1>
+
+<section>
+    <h1>Add Game:</h1>
+    
+    
+        <EditForm Model="@Game" OnSubmit="@HandleSubmit" >
+       
+        <InputText @bind-Value=Game.Name placeholder="Enter game name"></InputText>
+
+        <button type="submit">Submit</button>
+
+    </EditForm>
+    
+</section>
+@if(Games != null)
+{
+    @foreach (Game game in Games)
+    {
+        <p>.</p>
+         <p>@game.Name</p>
+         
+    }
+ 
+}
