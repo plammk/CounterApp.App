@@ -1,0 +1,12 @@
+﻿@using CounterApp.App.Components.Games;
+
+<h3>All Games</h3>
+
+@if (GamesList != null)
+{
+    @foreach (Game game in GamesList)
+    {
+        <p>@game.Name</p>
+        <a href="@($"editgame/{game.Id}")" class="btn btn-primary">Edit Game</a>
+    }
+}

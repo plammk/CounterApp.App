@@ -1,4 +1,5 @@
 ﻿using CounterApp.Shared.Domain;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 
@@ -12,6 +13,8 @@ namespace CounterApp.App.Services
         {
               _httpClient = httpClient;
         }
+
+        List<Game> GamesList { get; set; } = new List<Game>();
 
         public async Task<IEnumerable<Game>> GetAllGames()
         {
@@ -29,10 +32,23 @@ namespace CounterApp.App.Services
 
             if (response.IsSuccessStatusCode)
             {
-                return await JsonSerializer.DeserializeAsync<Game>(await response.Content.ReadAsStreamAsync());
+                var returned = await response.Content.ReadAsStreamAsync();
+                return await JsonSerializer.DeserializeAsync<Game>(returned);
             }
 
             return null;  
+        }
+
+        public async Task<Game> GetGameById(int id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<Game>($"api/game/{id}");
+
+            return response;
+        }
+
+        public async Task DeleteGame(int gameId)
+        {
+            await _httpClient.DeleteAsync($"api/game/{gameId}");
         }
     }
 }

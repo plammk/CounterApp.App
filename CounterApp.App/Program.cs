@@ -1,4 +1,5 @@
 using CounterApp.App;
+using CounterApp.App.Components.Games;
 using CounterApp.App.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;

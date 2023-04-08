@@ -24,8 +24,4 @@
     <ProjectReference Include="..\CounterApp.Shared\CounterApp.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>

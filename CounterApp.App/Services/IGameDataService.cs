@@ -6,5 +6,7 @@ namespace CounterApp.App.Services
     {
         Task<IEnumerable<Game>> GetAllGames();
         Task<Game> AddGame(Game game);
+        Task<Game> GetGameById(int id);
+        Task DeleteGame(int gameId);
     }
 }

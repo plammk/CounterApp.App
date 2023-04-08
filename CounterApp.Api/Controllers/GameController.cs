@@ -10,7 +10,8 @@ namespace CounterApp.Api.Controllers
     public class GameController : ControllerBase
     {
         private readonly IGameService _gameService;
-        public GameController(IGameService gameService) 
+
+        public GameController(IGameService gameService)
         {
             _gameService = gameService;
         }
@@ -20,6 +21,19 @@ namespace CounterApp.Api.Controllers
         {
             return Ok(_gameService.GetAllGames());
         }
+        
+        [HttpGet("{id}")]
+        public IActionResult GetGameById(int id)
+        {
+            if(id == 0)
+            {
+                return BadRequest();
+            }
+
+            var wantedGame = _gameService.GetGameById(id);
+
+            return Ok(wantedGame);
+        }
 
         [HttpPost]
         public IActionResult CreateGame([FromBody] Game game)
@@ -28,23 +42,39 @@ namespace CounterApp.Api.Controllers
             {
                 return BadRequest();
             }
-            if(game.Name == string.Empty)
+
+            if(String.IsNullOrWhiteSpace(game.Name))
             {
-                ModelState.AddModelError("Name","Enter name of the game");
-                
+                ModelState.AddModelError("Name","Enter name of the game");              
             }
 
             if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
-
+            }
+    
             var createdGame = _gameService.AddGame(game);
 
-            return Created("game", createdGame);
-            
-           
-            
+            return Created("game",createdGame); 
         }
 
-        
+        [HttpDelete("{id}")]
+        public IActionResult DeleteGame(int id)
+        {
+            if(id ==0)
+            {
+                return BadRequest();
+            }
+
+            var deletedGame = _gameService.DeleteGame(id); 
+            if(deletedGame == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
     }
 }

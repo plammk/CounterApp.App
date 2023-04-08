@@ -8,7 +8,8 @@ namespace CounterApp.Shared.Domain
 {
     public class Game
     {
-        public string Name { get; set; } = string.Empty!;
+        public string Name { get; set; }
 
+        public int Id { get; set; }  
     }
 }

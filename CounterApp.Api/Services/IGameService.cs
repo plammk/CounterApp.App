@@ -7,5 +7,7 @@ namespace CounterApp.Api.Services
     {
         IEnumerable<Game> GetAllGames();
         Game AddGame(Game game);
+        Game GetGameById(int id);
+        Game DeleteGame(int gameId);
     }
 }
