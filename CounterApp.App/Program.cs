@@ -10,4 +10,5 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddHttpClient<IGameDataService, GameDataService>(client => client.BaseAddress = new Uri("https://localhost:7176"));
+builder.Services.AddHttpClient<IPlayerDataService, PlayerDataService>(client => client.BaseAddress = new Uri("https://localhost:7176"));
 await builder.Build().RunAsync();

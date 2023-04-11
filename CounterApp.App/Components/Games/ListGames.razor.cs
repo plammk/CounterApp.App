@@ -1,4 +1,5 @@
-﻿using CounterApp.App.Services;
+﻿using CounterApp.App.Pages;
+using CounterApp.App.Services;
 using CounterApp.Shared.Domain;
 using Microsoft.AspNetCore.Components;
 using System.Runtime.CompilerServices;
@@ -12,14 +13,18 @@ namespace CounterApp.App.Components.Games
        
         public List<Game>? GamesList { get; set; } = default!;
 
+        [Parameter]
+        public EventCallback<Game> EditButtonClicked {get;set; }
+
         protected override async Task OnInitializedAsync()
         {
             GamesList = (await GameDataService.GetAllGames()).ToList();
-        } 
-        
-        private async Task HandleDelete(int gameId)
+        }
+
+        protected async Task HandleDelete(int gameId)
         {
-            GameDataService.DeleteGame(gameId);
+            await GameDataService.DeleteGame(1);
+            StateHasChanged();            
         }
     }
 }

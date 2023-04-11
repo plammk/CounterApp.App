@@ -2,12 +2,17 @@
 using CounterApp.Api.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Components.WebAssembly.Services;
+using CounterApp.Api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddSingleton<IGameService, GameService>();
+
+builder.Services.AddSingleton<IPlayerService, PlayerService>();
+
+builder.Services.AddSingleton<IGamesList, GamesList>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -35,9 +40,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseWebAssemblyDebugging();
 }
-app.UseBlazorFrameworkFiles();
 
 app.UseHttpsRedirection();
+
+app.UseBlazorFrameworkFiles();
 
 app.UseStaticFiles();
 

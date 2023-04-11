@@ -10,6 +10,11 @@ namespace CounterApp.Shared.Domain
     {
         public string Name { get; set; }
 
-        public int Id { get; set; }  
+        public int Id { get; set; }
+
+        public List<Player> PlayersList { get; set; } = new List<Player>();
+
+        public int CurrPlayerId { get; set; } = 1; 
+
     }
 }

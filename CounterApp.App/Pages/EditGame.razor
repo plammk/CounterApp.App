@@ -1,6 +1,31 @@
 ﻿@page "/editgame/{GameId}"
 
-<h3>@Game.Name</h3>
+<h3>@CurrGame?.Name</h3>
+
+<p>Players:</p>
+@if (CurrGame != null)
+{
+    @if (CurrGame.PlayersList.Any() == false)
+    {
+        <p>There are currently no players in this game</p>
+    }
+    else
+    {
+        foreach (var player in CurrGame.PlayersList)
+        {
+            <dir>
+                <button class="btn btn-primary" @onclick="(() => DecreasePlayersPointsBy1(player))" >-</button>
+                @player.Name - @player.Points
+                <button class="btn btn-primary" @onclick="(() => IncreasePlayersPointsBy1(player))" >+</button>
+            </dir>
+        }
+    }
+}
+
+<dir>
+<input placeholder="Player Name" @bind-value="Player.Name"></input>
+<button class="btn btn-primary" @onclick="HandleAddPlayer">Add Player</button>
+</dir>
 
 <button class="btn btn-primary" @onclick="HandleDelete">Delete Game</button>
 
