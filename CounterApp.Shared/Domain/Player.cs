@@ -8,8 +8,10 @@ namespace CounterApp.Shared.Domain
 {
     public class Player
     {
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; }
 
-        public int Points { get; set; }
+        public int Points { get; set; } = 0;
+
+        public int Id { get; set; } = 1;
     }
 }
