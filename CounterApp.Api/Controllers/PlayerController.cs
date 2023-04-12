@@ -74,7 +74,7 @@ namespace CounterApp.Api.Controllers
         {
             _gameService.DeletePlayer(gameId, playerId);
 
-            return NoContent(); 
+            return NoContent();
         }
     }
 }

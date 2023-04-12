@@ -36,6 +36,9 @@ namespace CounterApp.Api.Services
             return null;
         }
 
+            return null;
+        }
+
         public Game AddGame(Game game)
         {
             game.Id = _currGameId;

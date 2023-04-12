@@ -42,10 +42,10 @@ namespace CounterApp.App.Services
         }
 
         public async Task UpdatePlayersPoints(int gameId, Player player)
-        {   
+        {
             await _httpClient.PutAsync($"api/player/{player.Id}/game/{gameId}/points/{player.Points}",null);
         }
-
+            
         public async Task DeletePlayer(int gameId, int playerId)
         {
             await _httpClient.DeleteAsync($"api/player/{playerId}/game/{gameId}");
