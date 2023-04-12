@@ -10,21 +10,35 @@ namespace CounterApp.App.Components.Games
     {
         [Inject]
         public IGameDataService? GameDataService { get; set; }
-       
+
+        [Inject]
+        public NavigationManager? NavigationManager { get; set; }
+        [Parameter]
         public List<Game>? GamesList { get; set; } = default!;
 
-        [Parameter]
-        public EventCallback<Game> EditButtonClicked {get;set; }
+        protected override async Task OnParametersSetAsync()
+        {
+            await SetGamesList();
+        }
 
-        protected override async Task OnInitializedAsync()
+        protected async Task SetGamesList()
         {
             GamesList = (await GameDataService.GetAllGames()).ToList();
-        }
+        } 
 
         protected async Task HandleDelete(int gameId)
         {
-            await GameDataService.DeleteGame(1);
-            StateHasChanged();            
+            await GameDataService.DeleteGame(gameId);
+            await SetGamesList();
+            StateHasChanged();
+            ShouldRender();
         }
+
+        protected async Task NavigateToGameOverview(int gameId)
+        {
+            NavigationManager.NavigateTo($"/overview/{gameId}");
+        }
+
+
     }
 }

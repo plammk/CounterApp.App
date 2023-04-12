@@ -14,7 +14,11 @@ namespace CounterApp.Shared.Domain
 
         public List<Player> PlayersList { get; set; } = new List<Player>();
 
-        public int CurrPlayerId { get; set; } = 1; 
+        public int CurrPlayerId { get; set; } = 1;
+
+        public bool Finished { get; set; } = false;
+
+        public Player? Winner { get; set; } = default!;
 
     }
 }

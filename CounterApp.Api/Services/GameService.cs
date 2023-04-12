@@ -78,6 +78,19 @@ namespace CounterApp.Api.Services
             }
         }
 
+        public void MarkGameAsFinished(Game finishedGame)
+        {
+            foreach(var game in _list)
+            {
+                if(game.Id == finishedGame.Id)
+                {
+                    game.Finished = true;
+                    game.PlayersList = finishedGame.PlayersList;
+                    game.Winner = finishedGame.Winner;
+                }
+            }
+        }
+
         public Game GetGameById(int id)
         {
             foreach(var game in _list)

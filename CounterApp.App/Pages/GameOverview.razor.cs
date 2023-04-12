@@ -6,7 +6,7 @@ using System.Data;
 
 namespace CounterApp.App.Pages
 {
-    public partial class EditGame
+    public partial class GameOverview
     {
         [Inject]
         public IGameDataService? GameDataService { get; set; }
@@ -19,7 +19,7 @@ namespace CounterApp.App.Pages
         
         [Parameter]
         public string GameId { get; set; }
-
+        [Parameter]
         public Game? CurrGame { get; set; } = new Game();
 
         public Player Player { get; set; } = new Player();
@@ -32,6 +32,7 @@ namespace CounterApp.App.Pages
         protected async void HandleAddPlayer()
         {
             await PlayerDataService.AddPlayer(Player, int.Parse(GameId));
+            SaveGame();
             await SetCurrentGame();
         }
 
@@ -69,14 +70,36 @@ namespace CounterApp.App.Pages
             SetCurrentGame();
         }
 
-        protected async void SaveGame()
+        protected async Task SaveGame()
         {
             foreach(var player in CurrGame.PlayersList)
             {
                 await UpdatePlayersPoints(player);
             }
+        }
 
-            NavManager.NavigateTo("/");
+        protected async void FinishGame()
+        {
+            CurrGame.PlayersList = CurrGame.PlayersList.OrderByDescending(x => x.Points).ThenByDescending(x => x.Name).ToList();
+            if (CurrGame.PlayersList[0].Points == CurrGame.PlayersList[1].Points)
+            {
+                Player player = new Player
+                {
+                    Name = "Draw"
+                };
+                CurrGame.Winner = player;
+            }
+            else
+            {
+                CurrGame.Winner = CurrGame.PlayersList[0];
+            }
+            await GameDataService.MarkGameAsFinished(CurrGame);
+            StateHasChanged();
+        }
+
+        protected async Task NavigateBackToGameOverview()
+        {
+            NavManager.NavigateTo("/"); 
         }
 
     }

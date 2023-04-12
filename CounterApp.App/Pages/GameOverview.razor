@@ -1,0 +1,139 @@
+﻿@page "/overview/{GameId}"
+
+<dir>
+    <h3>@CurrGame?.Name</h3>
+</dir>
+
+@if(CurrGame?.Finished == false)
+{
+    <dir>
+        <p>Add Player</p>
+    </dir>
+}
+
+@if (CurrGame?.Finished == false)
+{
+    <dir>
+        Player name:
+        <p>
+            <input @bind-value="Player.Name"></input>
+            <Button Color="Color.Primary" Clicked="(()=> { HandleAddPlayer(); SaveGame();})">Add Player</Button>
+        </p>
+    </dir>
+}
+
+@if(CurrGame.Finished == true)
+{
+    <dir>
+        @if(CurrGame.Winner.Name != "Draw")
+        {
+            <h3>Winner: @CurrGame.Winner?.Name</h3>
+        }
+        else
+        {
+            <h3>Draw</h3>
+        }
+        <p>Classification:</p>
+    </dir>
+}
+else
+{
+    <dir>
+        <p>Players:</p>
+    </dir>
+}
+
+@if (CurrGame != null)
+{
+    @if (CurrGame.PlayersList.Any() == false)
+    {
+        <dir>
+            <p>There are currently no players in this game</p>
+        </dir>
+    }
+    else
+    {
+        <dir>
+          <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHeaderCell>Name</TableHeaderCell>
+                    @if (CurrGame.Finished == false)
+                    {
+                         <TableHeaderCell>-</TableHeaderCell>
+                    }
+                    <TableHeaderCell>Points</TableHeaderCell>
+                    @if(CurrGame.Finished == false)
+                    {
+                        <TableHeaderCell>+</TableHeaderCell>
+                    }
+                    @if (CurrGame.Finished == false)
+                    {
+                        <TableHeaderCell>Delete</TableHeaderCell>
+                    }
+                </TableRow>
+            </TableHeader>
+            <TableBody>
+                @foreach (var player in CurrGame.PlayersList)
+                {
+                    <TableRow>
+                        <TableRowHeader>@player.Name</TableRowHeader>
+                        @if (CurrGame.Finished == false)
+                        {
+                            <TableRowCell>
+                                <Button Color="Color.Primary" Clicked="(() => DecreasePlayersPoints(player,1))">-</Button>
+                            </TableRowCell>
+                        }
+                        @if(CurrGame.Finished == false)
+                        {
+                              <TableRowCell>
+                                  <input type="number" @bind-value="@player.Points"></input>
+                              </TableRowCell>
+                        }
+                        else
+                        {
+                            <TableRowCell>
+                                <p>@player.Points</p>
+                            </TableRowCell>
+                        }
+                        @if (CurrGame.Finished == false)
+                        {
+                            <TableRowCell>
+                                <Button Color="Color.Primary" Clicked="(() => IncreasePlayersPoints(player,1))">+</Button>
+                            </TableRowCell>
+                        }
+                        @if (CurrGame.Finished == false)
+                        {
+                            <TableRowCell>
+                                <Button Color="Color.Primary" Clicked="(() => DeletePlayer(player.Id))">Delete</Button>
+                            </TableRowCell>
+                        }
+                    </TableRow>                   
+                }
+            </TableBody>
+          </Table>
+        </dir>
+    }
+}
+
+@if(CurrGame.Finished != true)
+{
+    <dir>
+        <Button Color="Color.Primary" Clicked="(()=> { SaveGame(); NavigateBackToGameOverview();})" Outline>Save Game</Button>
+    </dir>
+}
+
+@if(CurrGame.Finished == false)
+{
+    <dir>
+        <Button Color="Color.Primary" Clicked="(()=> {SaveGame(); FinishGame();})">Finish Game</Button>
+    </dir>
+}
+<dir>
+    <Button Color="Color.Primary" Clicked="NavigateBackToGameOverview" Outline>Back To Games</Button>
+</dir>
+
+
+
+
+

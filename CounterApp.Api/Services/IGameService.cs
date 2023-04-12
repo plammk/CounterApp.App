@@ -10,6 +10,7 @@ namespace CounterApp.Api.Services
         Player AddPlayer(Player player, int id);
         Game AddGame(Game game);
         void UpdatePlayersPoints(int gameId, int playerId, int points);
+        void MarkGameAsFinished(Game finishedGame);
         Game GetGameById(int id);
         Game DeleteGame(int gameId);
         void DeletePlayer(int gameId, int playerId);

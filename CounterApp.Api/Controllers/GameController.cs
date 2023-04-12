@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CounterApp.Api.Services;
 using CounterApp.Shared.Domain;
+using CounterApp.App.Pages;
 
 namespace CounterApp.Api.Controllers
 {
@@ -56,6 +57,20 @@ namespace CounterApp.Api.Controllers
             var createdGame = _gameService.AddGame(game);
 
             return Created("game",createdGame); 
+        }
+
+        [HttpPut]
+        public IActionResult MarkGameAsFinished([FromBody] Game finishedGame)
+        {
+            if (finishedGame == null)
+            {
+                return BadRequest();
+            }
+
+            _gameService.MarkGameAsFinished(finishedGame);
+
+            return NoContent();
+
         }
 
         [HttpDelete("{id}")]

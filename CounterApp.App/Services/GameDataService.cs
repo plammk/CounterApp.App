@@ -50,5 +50,12 @@ namespace CounterApp.App.Services
         {
             await _httpClient.DeleteAsync($"api/game/{gameId}");
         }
+
+        public async Task MarkGameAsFinished(Game finishedGame)
+        {
+            var gameJson = new StringContent(JsonSerializer.Serialize(finishedGame), Encoding.UTF8, "application/json");
+
+            await _httpClient.PutAsync("api/game",gameJson);
+        }
     }
 }

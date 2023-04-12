@@ -1,12 +1,55 @@
 ﻿@using CounterApp.App.Components.Games;
 
-<h3>All Games</h3>
-
-@if (GamesList != null)
+@if(GamesList?.Any() == true)
 {
-    @foreach (Game game in GamesList)
-    {
-        <p>@game.Name</p>
-        <a href="@($"editgame/{game.Id}")" class="btn btn-primary">Edit Game</a>
-    }
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHeaderCell>Name</TableHeaderCell>
+                <TableHeaderCell>Status</TableHeaderCell>
+                <TableHeaderCell>Winner</TableHeaderCell>
+                <TableHeaderCell>Details</TableHeaderCell>
+                <TableHeaderCell>Delete</TableHeaderCell>
+            </TableRow>
+        </TableHeader>
+        @foreach (Game game in GamesList)
+        {
+            <TableBody>
+                <TableRow>
+                    <TableRowHeader>@game.Name</TableRowHeader>
+                    <TableRowCell>
+                        @if (game.Finished == true)
+                        {
+                            <p>Finished</p>
+                        }
+                        else
+                        {
+                            <p>In progress</p>
+                        }
+                    </TableRowCell>
+                    <TableRowCell>
+                        @if (game.Finished == true)
+                        {
+                            <p>@game.Winner?.Name</p>
+                        }
+                        else
+                        {
+                            <p>-</p>
+                        }
+                    </TableRowCell>
+                    <TableRowCell>
+                        <Button Color="Color.Primary" Clicked="(() => NavigateToGameOverview(game.Id))" Outline>Overview</Button>
+                </TableRowCell>
+                <TableRowCell>
+                    <Button Color="Color.Primary" Clicked="(()=> HandleDelete(game.Id))">Delete Game</Button>
+                </TableRowCell>
+            </TableRow>
+        </TableBody>
+        }
+    </Table>
 }
+else
+{
+    <p>There are currently no games added</p>
+}
+
