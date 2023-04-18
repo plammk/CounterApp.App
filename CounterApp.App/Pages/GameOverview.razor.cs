@@ -80,7 +80,7 @@ namespace CounterApp.App.Pages
 
         protected async void FinishGame()
         {
-            CurrGame.PlayersList = CurrGame.PlayersList.OrderByDescending(x => x.Points).ThenByDescending(x => x.Name).ToList();
+            CurrGame.PlayersList = CurrGame.PlayersList.OrderByDescending(x => x.Points).ThenBy(x => x.Name).ToList();
             if (CurrGame.PlayersList[0].Points == CurrGame.PlayersList[1].Points)
             {
                 Player player = new Player

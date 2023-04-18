@@ -1,0 +1,12 @@
+F:\Projects\CounterApp.App-master\CounterApp.Shared\bin\Debug\net6.0\CounterApp.Shared.deps.json
+F:\Projects\CounterApp.App-master\CounterApp.Shared\bin\Debug\net6.0\CounterApp.Shared.dll
+F:\Projects\CounterApp.App-master\CounterApp.Shared\bin\Debug\net6.0\CounterApp.Shared.pdb
+F:\Projects\CounterApp.App-master\CounterApp.Shared\obj\Debug\net6.0\CounterApp.Shared.csproj.AssemblyReference.cache
+F:\Projects\CounterApp.App-master\CounterApp.Shared\obj\Debug\net6.0\CounterApp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\CounterApp.App-master\CounterApp.Shared\obj\Debug\net6.0\CounterApp.Shared.AssemblyInfoInputs.cache
+F:\Projects\CounterApp.App-master\CounterApp.Shared\obj\Debug\net6.0\CounterApp.Shared.AssemblyInfo.cs
+F:\Projects\CounterApp.App-master\CounterApp.Shared\obj\Debug\net6.0\CounterApp.Shared.csproj.CoreCompileInputs.cache
+F:\Projects\CounterApp.App-master\CounterApp.Shared\obj\Debug\net6.0\CounterApp.Shared.dll
+F:\Projects\CounterApp.App-master\CounterApp.Shared\obj\Debug\net6.0\refint\CounterApp.Shared.dll
+F:\Projects\CounterApp.App-master\CounterApp.Shared\obj\Debug\net6.0\CounterApp.Shared.pdb
+F:\Projects\CounterApp.App-master\CounterApp.Shared\obj\Debug\net6.0\ref\CounterApp.Shared.dll

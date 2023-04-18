@@ -1,0 +1,97 @@
+{
+  "Files": [
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\obj\\Debug\\net6.0\\build-gz\\TrRnuvmG.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CounterApp.App.styles.css",
+      "PackagePath": "staticwebassets\\CounterApp.App.styles.css"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "F:\\Projects\\CounterApp.App-master\\CounterApp.App\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CounterApp.App.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.CounterApp.App.props",
+      "PackagePath": "build\\CounterApp.App.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.CounterApp.App.props",
+      "PackagePath": "buildMultiTargeting\\CounterApp.App.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.CounterApp.App.props",
+      "PackagePath": "buildTransitive\\CounterApp.App.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
